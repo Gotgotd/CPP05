@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gautier <gautier@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:05:18 by gautier           #+#    #+#             */
-/*   Updated: 2024/09/27 15:45:45 by gautier          ###   ########.fr       */
+/*   Updated: 2024/10/03 11:09:08 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main() {
 
-	Bureaucrat	Lucien("lucien", 1);
+	Bureaucrat	Lucien("Lucien", 1);
 	Bureaucrat	Jose("Jose", 150);
 
 	try {
@@ -42,6 +42,11 @@ int	main() {
 	catch(const std::exception& e) {
 		std::cerr << e.what() << '\n';
 	}
+
+	Form	contract("contract", 75, 50);
+
+	Jose.signForm(contract);
+	Lucien.signForm(contract);
 
 	return 0;
 }

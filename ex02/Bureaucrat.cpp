@@ -6,7 +6,7 @@
 /*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:21:50 by gautier           #+#    #+#             */
-/*   Updated: 2024/10/03 11:06:21 by gdaignea         ###   ########.fr       */
+/*   Updated: 2024/10/03 17:43:32 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,9 @@ int	Bureaucrat::getGrade() const {
 void	Bureaucrat::incrementGrade() {
 	if (_grade <= 1)
 		throw Bureaucrat::GradeTooHighException();
-	else
+	else {
 		_grade--;
+	}
 }
 
 void	Bureaucrat::decrementGrade() {
@@ -72,15 +73,20 @@ void	Bureaucrat::decrementGrade() {
 		_grade++;
 }
 
-void	Bureaucrat::signForm(Form& form) const {
+void	Bureaucrat::signForm(AForm& form) const {
 	try {
 		form.beSigned(*this);
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	}
 	catch (const std::exception& e) {
-		std::cerr << this->getName() << " couldn't sign " << form.getName() << " because" << e.what() << std::endl;
+		std::cerr << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
 	}
 
+}
+
+void	Bureaucrat::executeForm(AForm const& form) {
+	form.execute(*this);
+	std::cout << _name << " executed " << form.getName() << std::endl;
 }
 
 /*////////// EXCEPTIONS //////////*/
