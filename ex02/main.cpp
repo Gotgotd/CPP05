@@ -6,7 +6,7 @@
 /*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:05:18 by gautier           #+#    #+#             */
-/*   Updated: 2024/10/03 18:02:38 by gdaignea         ###   ########.fr       */
+/*   Updated: 2024/10/04 15:14:33 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,10 @@ int	main() {
 		std::cerr <<Bernard.getName() << " couldn't sign the form. " << e.what() << '\n';
 	}
 	std::cout << std::endl;
+
+	delete shrub;
+	delete prez;
+	delete rob;
 
 	return 0;
 }
