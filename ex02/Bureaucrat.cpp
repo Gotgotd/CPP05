@@ -6,7 +6,7 @@
 /*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:21:50 by gautier           #+#    #+#             */
-/*   Updated: 2024/10/03 17:43:32 by gdaignea         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:27:47 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,16 @@ Bureaucrat::Bureaucrat() {};
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
 
-	if (grade > 150)
-		throw Bureaucrat::GradeTooLowException();
-	else if (grade < 1)
-		throw Bureaucrat::GradeTooHighException();
+	try {
+		_grade = grade;
+		if (grade > 150)
+			throw Bureaucrat::GradeTooLowException();
+		else if (grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+	}
+	catch (std::exception & e){
+		std::cout << "constructor of this class with '" << _name << "' " << e.what() << std::endl;
+	}
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const & copy) {
@@ -45,7 +51,7 @@ std::ostream&	operator<<(std::ostream & op, Bureaucrat const & b) {
 	return op;
 }
 
-/*////////// GETTERS //////////*/
+/*////////// GETTERS - SETTERS //////////*/
 
 std::string const &	Bureaucrat::getName() const {
 	return this->_name;
@@ -53,6 +59,10 @@ std::string const &	Bureaucrat::getName() const {
 
 int	Bureaucrat::getGrade() const {
 	return this->_grade;
+}
+
+void	Bureaucrat::setGrade(int grade) {
+	this->_grade = grade;
 }
 
 /*//////// MEMBER FUNCTIONS /////////*/

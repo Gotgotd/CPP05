@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gautier <gautier@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:05:18 by gautier           #+#    #+#             */
-/*   Updated: 2024/09/27 15:45:45 by gautier          ###   ########.fr       */
+/*   Updated: 2024/10/10 15:30:53 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 int	main() {
 
-	Bureaucrat	Lucien("lucien", 1);
-	Bureaucrat	Jose("Jose", 150);
+	Bureaucrat	Lucien("lucien", -1);
+	Bureaucrat	Jose("Jose", 156);
 
+	Lucien.setGrade(1);
+	Jose.setGrade(150);
+	
 	try {
 		Lucien.incrementGrade();
 	}

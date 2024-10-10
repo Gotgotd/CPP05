@@ -6,7 +6,7 @@
 /*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:05:32 by gautier           #+#    #+#             */
-/*   Updated: 2024/10/03 11:00:46 by gdaignea         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:30:53 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class	Bureaucrat {
 	Bureaucrat&			operator=(Bureaucrat const & rhs);
 	std::string const&	getName() const;
 	int					getGrade() const;
+	void				setGrade(int grade);
 
 	void	incrementGrade();
 	void	decrementGrade();
